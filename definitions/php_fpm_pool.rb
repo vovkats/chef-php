@@ -21,7 +21,7 @@ define :php_fpm_pool, :template => "pool.conf.erb", :enable => true do
 
   pool_name = params[:name]
 
-  include_recipe "php-fpm"
+  include_recipe "php::php-fpm"
 
   conf_file = "#{node['php-fpm']['pool_conf_dir']}/#{pool_name}.conf"
 
@@ -32,7 +32,7 @@ define :php_fpm_pool, :template => "pool.conf.erb", :enable => true do
       owner "root"
       group "root"
       mode 00644
-      cookbook params[:cookbook] || "php-fpm"
+      cookbook params[:cookbook] || "php"
       variables(
         :pool_name => pool_name,
         :listen => params[:listen],
