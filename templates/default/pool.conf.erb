@@ -30,7 +30,7 @@ group = <%= @group || node['php-fpm']['group'] %>
 ;                            specific port;
 ;   '/path/to/unix/socket' - to listen on a unix socket.
 ; Note: This value is mandatory.
-listen = <%= @listen || "/var/run/php-fpm-#{@pool_name}.sock" %>
+listen = 127.0.0.1:9090
 
 ; Set listen(2) backlog.
 ; Default Value: 128 (-1 on FreeBSD and OpenBSD)
